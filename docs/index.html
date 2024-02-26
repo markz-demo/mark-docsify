@@ -12,32 +12,63 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-switch@1.0.2/dist/docsify-dark-switch.css">
   <style type="text/css">
+    /* theme color */
     :root {
-      --docsifytabs-border-color: #ededed;
-      --docsifytabs-tab-highlight-color: var(--theme-color, #42b983);
+      /* 即themeColor值 */
+      --theme-color: #42b983;
     }
 
+    html.dark {
+      /* 深色主题色 */
+      --theme-color: #ea6f5a;
+    }
+
+    /* navs fixed 顶部导航fixed固定*/
     .app-nav {
       position: fixed;
     }
 
+    /* sidebar active bug */
     .sidebar ul li[class=""]>a {
       border-right: 2px solid;
-      color: #42b983;
-      color: var(--theme-color, #42b983);
+      color: var(--theme-color);
       font-weight: 600
     }
 
+    /* toc */
     .page_toc div[class^="lv"] a {
       font-weight: 400;
     }
 
+    :root {
+      --sidebar-nav-link-color--active: var(--theme-color);
+    }
+
+    html.dark {
+      --sidebar-nav-link-color: #c8c8c8;
+    }
+
+    /* section */
     .markdown-section pre {
       padding: 0;
     }
 
     .markdown-section pre>code {
       padding: 1rem;
+    }
+
+    /* table dark */
+    html.dark .markdown-section tr:nth-child(2n) {
+      background-color: #4f4f4f;
+    }
+
+    /* tabs */
+    html.dark {
+      --docsifytabs-tab-background: #4f4f4f;
+    }
+
+    html.dark .docsify-tabs--classic>.docsify-tabs__tab--active {
+      border-top: none;
     }
   </style>
 </head>
@@ -47,17 +78,20 @@
   <script>
     window.$docsify = {
       name: 'mark-docsify',
-      nameLink: {
+      nameLink: { // 多语言下,点击name跳转链接
         '/zh/': '#/zh/',
         '/': '#/',
       },
       repo: 'https://github.com/markz-demo/mark-docsify',
 
-      auto2top: true,
+      themeColor: '#42b983', // 设置主题色，即官方vue.css中对应的主题色
+      auto2top: true, // 每次切换页面后自动跳转到页面顶部
       loadNavbar: true,
       loadSidebar: true,
+      // subMaxLevel: 2, // 是否把文档里的目录显示在侧边栏里，这里设置不显示，下面有介绍更好用的toc插件实现
       alias: {
-        '/.*/_navbar.md': '/_navbar.md',
+        '/.*/_navbar.md': '/_navbar.md', // 配置 alias 避免不必要的回退过程
+        '/.*/_sidebar.md': '/_sidebar.md',
       },
 
       search: {
@@ -71,8 +105,8 @@
           '/': 'No Results',
         },
         depth: 6,
-        hideOtherSidebarContent: true,
-        pathNamespaces: ['/zh', '/'],
+        hideOtherSidebarContent: true, // 建议设置true，搜索时搜索结果跟侧边栏混在一起了很不友好
+        pathNamespaces: ['/zh', '/'], // 如果是多语言，建议设置此配置，搜索时就会只在当前语言下搜索
       },
 
       toc: {
@@ -90,8 +124,7 @@
       },
 
       darkSwitch: {
-        debug: true,
-        fixed: true,
+        fixed: true, // // switch按钮fixed固定
       },
 
       plugins: [

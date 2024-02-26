@@ -12,52 +12,30 @@ content
 
 ### Header 3
 
-content
+<!-- tabs:start -->
 
-```
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-```
+#### **English**
+
+Hello!
+
+#### **French**
+
+Bonjour!
+
+#### **Italian**
+
+Ciao!
+
+<!-- tabs:end -->
 
 #### Header 4
 
+| col1 | col2 |
+| ---- | ---- |
+| aa   | bb   |
+| cc   | dd   |
+| ee   | ff   |
 
-content
-
-```
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-code
-```
 
 ##### Header 5
 
@@ -83,20 +61,6 @@ code
 code
 ```
 
-## Tabs
+## Header 22
 
-<!-- tabs:start -->
-
-#### **English**
-
-Hello!
-
-#### **French**
-
-Bonjour!
-
-#### **Italian**
-
-Ciao!
-
-<!-- tabs:end -->
+content
